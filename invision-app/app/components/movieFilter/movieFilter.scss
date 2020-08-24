@@ -1,0 +1,23 @@
+.filter-container{
+    display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #fff;
+}
+.filter-item{
+    margin: 0 5px;
+    cursor: pointer;
+}
+.filter-Selected-Item{
+    position: relative;
+    pointer-events: none;
+}
+    .filter-Selected-Item::after{        
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            display: block;
+            width: 100%;
+            border-bottom: solid 4px #f65261;          
+    }

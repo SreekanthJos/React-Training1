@@ -1,0 +1,26 @@
+
+.search {
+    padding: 0 24px;
+    width: 100%;
+}
+.search__header {
+      color: #fff;
+      font-size: 32px;
+      letter-spacing: 6px;
+     margin-left:18%;
+    }
+  
+    .search__controls {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .search__input {
+      background-color: #232323d9;
+      width: 50%;
+      margin-right: 10px;
+      border: solid 1px #000;
+      border-radius: 4px;
+      box-shadow: 3px 3px 11px 3px #55555590;
+    }
+   

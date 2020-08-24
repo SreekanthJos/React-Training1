@@ -1,0 +1,103 @@
+   [
+        {
+            "id": "299536",
+            "title": "Avengers: Infinity War",
+            "release_date": "2018-27-04",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+            ],
+            "runtime": "149"
+        },
+        {
+            "id": "458156",
+            "title": "John Wick: Chapter 3 - Parabellum",
+            "release_date": "2019-17-05",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
+            "genres": [
+                "Thriller",
+                "Action",
+                "Crime"
+            ],
+            "runtime": "131"
+        },
+        {
+            "id": "2501",
+            "title": "The Bourne Identity",
+            "release_date": "2002-04-10",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/vN6jGCuzefysLVFrzK3Vs6xAdu1.jpg",
+            "genres": [
+                "Thriller",
+                "Action",
+                "Drama",
+                "Mystery"
+            ],
+            "runtime": "119"
+        },
+        {
+            "id": "4546261",
+            "title": "Sonic the Hedgehog",
+            "release_date": "2020-02-14",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+            "genres": [
+                "Family",
+                "Action",
+                "Comedy",
+                "Science Fiction"
+            ],
+            "runtime": "99"
+        },
+        {
+            "id": "530915",
+            "title": "1917",
+            "release_date": "2019-12-25",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
+            "genres": [
+                "War",
+                "Action",
+                "Drama",
+                "History"
+            ],
+            "runtime": "119"
+        },
+        {
+            "id": "454626",
+            "title": "Sonic the Hedgehog",
+            "release_date": "2020-02-14",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+            "genres": [
+                "Family",
+                "Action",
+                "Comedy",
+                "Science Fiction"
+            ],
+            "runtime": "99"
+        },
+        {
+            "id": "5309151",
+            "title": "1917",
+            "release_date": "2019-12-25",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
+            "genres": [
+                "War",
+                "Action",
+                "Drama",
+                "History"
+            ],
+            "runtime": "119"
+        },
+        {
+            "id": "2995361",
+            "title": "Avengers: Infinity War",
+            "release_date": "2018-27-04",
+            "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            "genres": [
+                "Adventure",
+                "Action",
+                "Science Fiction"
+            ],
+            "runtime": "149"
+        }
+    ]

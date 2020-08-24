@@ -1,0 +1,51 @@
+
+.movie {
+    position: relative;
+    max-width: 300px;
+    color: #999999;
+}
+// .movie__hover {
+
+// }
+//      
+ .movie__option {
+        display: flex;
+        top: 10px;
+        right: 10px;
+      }
+      
+    
+  
+    .movie__poster {
+      width: 250px;
+      height: 375px;
+    }
+  
+    .movie__figcaption {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-around;
+    }
+  
+    .movie__year {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: solid 1px #999999;
+    }
+  
+    .movie__option {
+      position: absolute;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      top: 30px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #000000;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  

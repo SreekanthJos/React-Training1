@@ -1,0 +1,23 @@
+.addContianer {
+  display: flex;
+  position: relative;
+  height: 400px;
+  background-image: url("../../../assets/addMovie-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  .add__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 48px;
+    width: 100%;
+    background-color: #232323CC;
+  }
+
+  .add-movie {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+  }
+ 

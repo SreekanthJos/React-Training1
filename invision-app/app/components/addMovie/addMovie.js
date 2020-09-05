@@ -1,7 +1,7 @@
 import React from "react";
 import  './addMovie.scss'
-import  '../common.scss'
 import { Search } from "../search";
+
 export function AddMovie(){
 return(
     <section className="addContianer">

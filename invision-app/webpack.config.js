@@ -12,6 +12,11 @@ module.exports = {
         port: 3000
      },
      resolve: {
+        alias:{
+         movieListFallback:path.resolve(__dirname,'app/components/movieListFallback'),
+         movieFiterAndSort:path.resolve(__dirname,'app/components/movieFiterAndSort'),
+
+        },
       extensions: ['.ts', '.tsx', '.js', '.json'],
      },
     

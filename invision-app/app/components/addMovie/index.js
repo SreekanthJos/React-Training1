@@ -1,1 +1,1 @@
-export * from './AddMovie'
+export * from './addMovie'

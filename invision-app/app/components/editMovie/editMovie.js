@@ -1,46 +1,65 @@
 import React from 'react';
-import './addMovie.scss'
-export  class AddMovie extends React.Component{
-    constructor(props) {
+import '../addMovie/addMovie.scss';
+
+export class EditMovie extends React.Component{
+    constructor(props){
         super(props);
-        this.state={           
-            title:'',
-            releaseDate:'',
-            movieUrl:'',
-            genere:'',
-            overview:'',
-            runtime:''            
-        };
-        this.onSubmit=this.onSubmit.bind(this);
-        this.reset=this.reset.bind(this);
-        this.onChangeInput=this.onChangeInput.bind(this);
-    }
-    onSubmit(){
-       this.props.editMovie(this.state);
-       this.props.close();
-    }
-    reset(){
-        const form = document.querySelector('.add-Edit-movie-form');
-        form.reset();
-        this.setState=({
+        this.state={
             id:'',
             title:'',
             releaseDate:'',
             movieUrl:'',
             genere:'',
             overview:'',
-            runtime:''            
-        });
+            runtime:''  ,
+            isOpen: false          
+        };
+       
+
+       
+        this.onSubmit=this.onSubmit.bind(this);
+        this.reset=this.reset.bind(this);
+        this.onChangeInput=this.onChangeInput.bind(this);
     }
-    onChangeInput(e){
-    }
-    render(){
+    onSubmit(){
+        this.props.addMovie(this.state);
+        this.props.close();
+     }
+     getData(){
+        this.setState(this.props.movie);
+     }
+
+     componentDidMount () {
+        this.getData();
+      }
+
+     reset(){
+         const form = document.querySelector('.add-Edit-movie-form');
+         form.reset();
+         this.setState=({
+             id:'',
+             title:'',
+             releaseDate:'',
+             movieUrl:'',
+             genere:'',
+             overview:'',
+             runtime:''            
+         });
+     }
+     onChangeInput(e){
+     }
+     
+     render(){
         return(
 <div className='add-modal-dialog'>
         <div className='add-modal-dialog-content'>
           <a href='#close' title='close' className='close' onClick={this.props.close}>X</a>
-          <h2 className='add-modal-dialog-header'>add movie</h2>
+          <h2 className='add-modal-dialog-header'>edit movie</h2>
           <form className='add-modal-dialog-form' onSubmit={this.onSubmit}>
+          <label>
+              Movie Id
+              <input name='title' readOnly className='add-input title' type="text"/>
+            </label>
             <label>
               Title
               <input name='title' className='add-input title' type="text" placeholder='Title' onChange={this.onChangeInput}/>
@@ -82,5 +101,4 @@ export  class AddMovie extends React.Component{
 
         );
     }
-
 }

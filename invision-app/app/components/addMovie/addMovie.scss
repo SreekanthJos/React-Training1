@@ -1,23 +1,106 @@
-.addContianer {
-  display: flex;
-  position: relative;
-  height: 400px;
-  background-image: url("../../../assets/addMovie-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.add-modal-dialog {
+    position:fixed;    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
 }
-  .add__content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 48px;
-    width: 100%;
-    background-color: #232323CC;
-  }
 
-  .add-movie {
+.add-modal-dialog-content {
+    width: 600px;
+    position: relative;
+    margin: 20px auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #111111;
+}
+
+.close {
+    color: #FFFFFF;
+    line-height: 25px;
     position: absolute;
-    top: 24px;
-    right: 20px;
-  }
- 
+    right: 25px;
+    text-align: center;
+    top: 20px;
+    width: 24px;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+.add-modal-dialog-header {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 3px;
+    margin-left: 50px;
+    letter-spacing: 10px;
+}
+
+.add-modal-dialog-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.add-modal-dialog-form label {
+    color: #F65261;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+.add-input, .add-select {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 500px;
+    background-color: #424242;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: grey;
+}
+
+.add-select {
+    width: 500px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.reset-button {
+    background-color: #111111;
+    border-color: #F65261;
+    border-radius: 5px;
+    color: #F65261;
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.submit-button {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: #F65261;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-right: 20px;
+}
+
+.error {
+    border: 2px solid #F65261;
+}

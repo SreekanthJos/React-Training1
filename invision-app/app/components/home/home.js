@@ -38,11 +38,19 @@ export class Home extends React.Component {
             movies
         });
     }
-
+    createUpdateMovie=(movie)=> {
+        debugger;
+        console.log(this.state)
+        const { movies }=this.state;
+       movies.push(movie);
+        this.setState({
+            movies
+        });
+    }
     render() {
         return (
             <>
-                <AddMovieButton />
+                <AddMovieButton createUpdateMovie={this.createUpdateMovie}/>
                 <MovieFiterAndSort filter={Filters} sort={this.sort.bind(this)} sortByItems={SortItems} />
                 <MoivesFound count={moviesData.length} />
                 <ErrorBoundary FallbackComponent={MovieListFallback}>

@@ -1,0 +1,65 @@
+.delete-modal-dialog {
+    position: fixed;    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;   
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+
+.delete-modal-dialog-content {
+    width: 400px;
+    position: relative;
+    margin: 25% auto;
+    padding: 5px 20px 100px 20px;
+    border-radius: 10px;
+    background: #111111;
+}
+
+.close {
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: 25px;
+    text-align: center;
+    top: 20px;
+    width: 24px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.delete-modal-dialog-header {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 60px;
+    margin-left: 20px;
+    letter-spacing: 3px;
+}
+
+.delete-modal-dialog-content p {
+    color: #ffffff;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.delete-confirmation-button {
+    position: absolute;
+    right: 20px;
+    margin-top: 20px;
+    background-color: #F65261;
+    border: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.delete-confirmation-button:hover {
+    background-color: #82131D;
+}

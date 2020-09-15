@@ -5,7 +5,13 @@
         "release_date": "2018-27-04",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
         "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "149"
+        "runtime": "149",
+        "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+        "vote_average":8.3,
+        "vote_count": 19645,
+        "budget": 300000000,
+        "revenue": 2046239637,
+        "tagline": "An entire universe. Once and for all."
     },
     {
         "id": "458156",
@@ -13,7 +19,13 @@
         "release_date": "2019-17-05",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
         "genres": "Thriller,Action,Crime",
-        "runtime": "131"
+        "runtime": "131",
+        "overview": "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.",
+        "vote_average":7.4,
+        "vote_count": 5686,
+        "budget": 55000000,
+        "revenue": 326709727,
+        "tagline": "The Grace Period Is Over"
     },
     {
         "id": "2501",
@@ -21,23 +33,13 @@
         "release_date": "2002-04-10",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/vN6jGCuzefysLVFrzK3Vs6xAdu1.jpg",
         "genres": "Thriller,Action, Drama,Mystery",
-        "runtime": "119"
-    },
-    {
-        "id": "4546261",
-        "title": "Sonic the Hedgehog",
-        "release_date": "2020-02-14",
-        "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
-        "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "99"
-    },
-    {
-        "id": "530915",
-        "title": "1917",
-        "release_date": "2019-12-25",
-        "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
-        "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "119"
+        "runtime": "119",
+        "overview": "Wounded to the brink of death and suffering from amnesia, Jason Bourne is rescued at sea by a fisherman. With nothing to go on but a Swiss bank account number, he starts to reconstruct his life, but finds that many people he encounters want him dead. However, Bourne realizes that he has the combat and mental skills of a world-class spy—but who does he work for?",
+        "vote_average":7.4,
+        "vote_count": 6528,
+        "budget": 60000000,
+        "revenue": 214034224,
+        "tagline": "He was the perfect weapon until he became the target."
     },
     {
         "id": "454626",
@@ -45,15 +47,55 @@
         "release_date": "2020-02-14",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
         "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "99"
+        "runtime": "99",
+        "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
+         "vote_average":7.5,
+         "vote_count": 5641,
+         "budget": 85000000,
+         "revenue": 306766470,
+         "tagline": "A Whole New Speed of Hero"
+    },
+    {
+        "id": "530915",
+        "title": "1917",
+        "release_date": "2019-12-25",
+        "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
+        "genres": "Family,Action, Comedy, History",
+        "runtime": "119",
+        "overview": "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.",
+        "vote_average":7.9,
+        "vote_count": 6448,
+        "budget": 100000000,
+        "revenue": 374733942,
+        "tagline": "Time is the enemy"
+    },
+    {
+        "id": "4546261",
+        "title": "Sonic the Hedgehog",
+        "release_date": "2020-02-14",
+        "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+        "genres": "Family,Action, Comedy, Science Fiction",
+        "runtime": "99",
+        "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
+         "vote_average":7.5,
+         "vote_count": 5641,
+         "budget": 85000000,
+         "revenue": 306766470,
+         "tagline": "A Whole New Speed of Hero"
     },
     {
         "id": "5309151",
         "title": "1917",
         "release_date": "2019-12-25",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
-        "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "119"
+        "genres": "Family,Action, Comedy, History",
+        "runtime": "119",
+        "overview": "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.",
+        "vote_average":7.9,
+        "vote_count": 6448,
+        "budget": 100000000,
+        "revenue": 374733942,
+        "tagline": "Time is the enemy"
     },
     {
         "id": "2995361",
@@ -61,6 +103,12 @@
         "release_date": "2018-27-04",
         "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
         "genres": "Family,Action, Comedy, Science Fiction",
-        "runtime": "149"
+        "runtime": "149",
+        "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+        "vote_average":8.3,
+        "vote_count": 19645,
+        "budget": 300000000,
+        "revenue": 2046239637,
+        "tagline": "An entire universe. Once and for all."
     }
 ]

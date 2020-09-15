@@ -1,34 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import './addMovieButton.scss'
 import { Search } from "../search";
 import { AddEditMovie } from "../addEditMovie";
+import PropTypes from 'prop-types';
 
-export class AddMovieButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: false
-        };
+export function AddMovieButton(props) {
+    const [isOpen, setOpenState] = useState(false);
 
-        this.close = this.close.bind(this);
+    function close() {
+        setOpenState(false);
     }
-    close() {
-        this.setState({
-            isOpen: false
-        });
-    }
-   
-    render() {
-        return (
-            <section className="addContianer">
-                <div className="add__content">
-                    <div className="add-movie">
-                        <input type="button" value="+ADD MOVIE" onClick={() => this.setState({ isOpen: true })} className="button button__control" />
-                        {this.state.isOpen && <AddEditMovie createUpdateMovie={this.props.  createUpdateMovie} close={this.close} isEdit={false}/>}
-                    </div>
-                    <Search />
+
+    return (
+        <section className="addContianer">
+            <div className="add__content">
+                <div className="add-movie">
+                    <input type="button" value="+ADD MOVIE" onClick={() => setOpenState(true)} className="button button__control" />
+                    {isOpen && <AddEditMovie createUpdateMovie={props.createUpdateMovie} close={close} />}
                 </div>
-            </section>
-        );
-    }
+                <Search />
+            </div>
+        </section>
+    );
 }
+AddMovieButton.propTypes = {
+    createUpdateMovie: PropTypes.func.isRequired
+  };
+export default AddMovieButton

@@ -7,7 +7,7 @@ export function MovieFiterAndSort(props){
 
     return(
         <div className="list-controls">
-            <MovieFilter filter={props.filter}/>
+            <MovieFilter filter={props.filter} filterMovies={props.filterMovies}/>
             <SortBy sort={props.sort} sortByItems={props.sortByItems}/>
         </div>
     );

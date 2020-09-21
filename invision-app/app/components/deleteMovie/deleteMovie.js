@@ -3,7 +3,7 @@ import './deleteMovie.scss';
 import PropTypes from 'prop-types';
 export function DeleteMovie(props){
   function deleteMovie () {
-    props.deleteMovie(this.props.id);
+    props.deleteMovie(props.id);
   }
   return (
     <div className='delete-modal-dialog'>

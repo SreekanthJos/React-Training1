@@ -14,7 +14,7 @@ export function MovieDetails(props) {
         <header className='header-container'>
             <div className='header-top-part'>
                 
-                <button className='search-description-button' onClick={props.displayMainpage}></button>
+                <button className='search-description-button' onClick={props.displayMainPage}></button>
             </div>
             <div className='description-container'>
                 <div className='image-container'>

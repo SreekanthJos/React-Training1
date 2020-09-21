@@ -7,53 +7,54 @@ import PropTypes from 'prop-types';
 
 export function MovieCard(props) {
   const [isHovered, setHoverState] = useState(false);
-  const [isOpenedMenu, setMenuState] = useState(false);
-  const [isOpenedDeleteWindow, setDeleteState] = useState(false);
-  const [isopenedEditWindow, setAddEditState] = useState(false);
+  const [isOpenedMenu, setMenuVisibility] = useState(false);
+  const [isOpenedDeleteWindow, setDeleteWindowVisibility] = useState(false);
+  const [isopenedEditWindow, setAddEditWindowVisibility] = useState(false);
 
   function handleEnter() {
-
     setHoverState(true);
   }
+
   function handleLeave() {
     setHoverState(false);
-    setMenuState(false);
+    setMenuVisibility(false);
   }
+
   function openEditWindow() {
-    setAddEditState(true);
+    setAddEditWindowVisibility(true);
     closeMenu();
   }
 
   function closeEditWindow() {
-    setAddEditState(false);
-
+    setAddEditWindowVisibility(false);
   }
+
   function openDeleteWindow() {
-    setDeleteState(true);
+    setDeleteWindowVisibility(true);
     closeMenu();
   }
 
   function closeDeleteWindow() {
-    setDeleteState(false);
+    setDeleteWindowVisibility(false);
   }
   function closeMenu(){
-    setMenuState(false);
+    setMenuVisibility(false);
   }
   function showDetails(){
     props.showMovieDetails(props.movie);
   }
   const movie = props.movie;
-  //console.log(props.movie);
+  
   return (
     <article className="movie" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {isOpenedDeleteWindow && (
         <DeleteMovie movie={props.movieId} close={closeDeleteWindow} deleteMovie={props.deleteMovie} id={props.movie.id}/>
       )}
       {isopenedEditWindow && (
-        <AddEditMovie movie={props.movie} createUpdateMovie={props.createUpdateMovie} close={closeEditWindow} closeMenu={closeMenu} />
+        <AddEditMovie movie={props.movie} onSubmit={props.updateMovie} close={closeEditWindow} closeMenu={closeMenu} />
       )}
       {isHovered && !isOpenedMenu && (
-        <div className='circle' onClick={() => { setMenuState(true); setHoverState(false) }}></div>
+        <div className='circle' onClick={() => { setMenuVisibility(true); setHoverState(false) }}></div>
       )}
       {isOpenedMenu && <Menu closeMenu={closeMenu} openEdit={openEditWindow} openDelete={openDeleteWindow} />}
       <figure className="movie__figure">
@@ -80,7 +81,7 @@ MovieCard.propTypes = {
     genres: PropTypes.string.isRequired,
     runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
   }),
-  createUpdateMovie: PropTypes.func.isRequired,
+  updateMovie: PropTypes.func.isRequired,
   //deleteMovie: PropTypes.func.isRequired, 
   //changeHeaderToDescription: PropTypes.func.isRequired
 };

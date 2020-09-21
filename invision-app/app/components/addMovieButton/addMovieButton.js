@@ -16,7 +16,7 @@ export function AddMovieButton(props) {
             <div className="add__content">
                 <div className="add-movie">
                     <input type="button" value="+ADD MOVIE" onClick={() => setOpenState(true)} className="button button__control" />
-                    {isOpen && <AddEditMovie createUpdateMovie={props.createUpdateMovie} close={close} />}
+                    {isOpen && <AddEditMovie  onSubmit={props.createMovie}  close={close} />}
                 </div>
                 <Search />
             </div>
@@ -24,6 +24,7 @@ export function AddMovieButton(props) {
     );
 }
 AddMovieButton.propTypes = {
-    createUpdateMovie: PropTypes.func.isRequired
+    createMovie: PropTypes.func.isRequired,
+   
   };
 export default AddMovieButton

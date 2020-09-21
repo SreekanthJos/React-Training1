@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { AddMovieButton } from '../addMovieButton'
 import { MovieFiterAndSort } from '../movieFiterAndSort';
@@ -8,19 +8,28 @@ import { MovieList } from '../movieList/movieList';
 import moviesData from '../../model/moviesData.json'
 import { MoivesFound } from "../moviesFound/moviesFound";
 import { MovieListFallback } from "../movieListFallback";
-import {MovieDetails} from '../movieDetails';
+import { MovieDetails } from '../movieDetails';
 
 export function Home(props) {
     const [movies, setMovies] = useState(moviesData);
     const [movie, setMovie] = useState({});
-    const[isDetailsPage,setDetialsPage]=useState(false);
-    function sort(selectedValue) {
+    const [isDetailsPage, setDetialsPage] = useState(false);
+    const [sortBy, setSortBy] = useState('');
 
-        if (selectedValue == 'title') {
-            movies.sort((movieA, movieB) => movieA.title > movieB.title ? 1 : -1);
+    useEffect(() => {      
+        sort();
+    },[sortBy]);
+
+    function updateSortValue(value) {
+        setSortBy(value);
+    }
+    function sort() {
+        let sortMovies = [...movies];
+        if (sortBy == 'title') {
+            sortMovies.sort((movieA, movieB) => movieA.title > movieB.title ? 1 : -1);
         }
         else {
-            movies.map((movie) => {
+            sortMovies.map((movie) => {
                 if (typeof movie.release_date === 'string') {
                     let year = movie.release_date.split('-')[0];
                     movie.release_date = year;
@@ -28,47 +37,57 @@ export function Home(props) {
                 }
                 return movie;
             });
-            movies.sort((movieA, movieB) => movieA.release_date > movieB.release_date ? 1 : -1);
+            sortMovies.sort((movieA, movieB) => movieA.release_date > movieB.release_date ? 1 : -1);
         }
 
-        setMovies(movies);
+        setMovies(sortMovies);
     }
-    function createUpdateMovie(movie) {
-        if (movies.some((m) => m.id != movie.id)) {
-            movies.push(movie);
-            setMovies(movies)
+    function createMovie(movie) {
+      let arMovies=[...movies];
+        if (arMovies.some((m) => m.id != movie.id)) {
+
+            arMovies.push(movie);
+            setMovies(arMovies)
         }
-        else {
-            const allmovies = movies.map((m) => {
-                if (m.id === movie.id) {
-                    return movie;
-                }
-                return m;
-            });
-            setMovies(allmovies);
-        }
-        
     }
-    function deleteMovie() {
+    function updateMovie(movie){
+        let arMovies=[...movies];
+        const allmovies = arMovies.map((m) => {
+            if (m.id === movie.id) {
+                return movie;
+            }
+            return m;
+        });
+        setMovies(allmovies);
+    }
+    function deleteMovie(id) {
         setMovies(movies.filter((m) => m.id !== id));
     }
-    function showMovieDetails(movie){
+    function showMovieDetails(movie) {
         setMovie(movie);
         setDetialsPage(true)
     }
-function displayMainpage(){
-    setDetialsPage(false)
+    function displayMainPage() {
+        setDetialsPage(false)
+    }
+function filterMovies(name){ 
+    if(name.toLowerCase()!='all'){    
+        const res=movies.filter((m) => m.genres.toLowerCase().includes(name.toLowerCase()));
+        setMovies(res);   
+    }
+    else{
+    setMovies(moviesData);
+    }
 }
-
     return (
-        <>{isDetailsPage?
-        <MovieDetails movie={movie} displayMainpage={displayMainpage}/>
-            :<AddMovieButton createUpdateMovie={createUpdateMovie} />
+        <>{isDetailsPage ?
+            <MovieDetails movie={movie} displayMainPage={displayMainPage} />
+            : <AddMovieButton createMovie={createMovie} />
         }
-            <MovieFiterAndSort filter={Filters} sort={sort} sortByItems={SortItems} />
-            <MoivesFound count={moviesData.length} />
+            <MovieFiterAndSort filter={Filters} sort={updateSortValue} filterMovies={filterMovies} sortByItems={SortItems} />
+            <MoivesFound count={movies.length} />
             <ErrorBoundary FallbackComponent={MovieListFallback}>
-                <MovieList movies={movies} createUpdateMovie={createUpdateMovie} deleteMovie={deleteMovie}  showMovieDetails={showMovieDetails}/>
+                <MovieList movies={movies} updateMovie={updateMovie} deleteMovie={deleteMovie} showMovieDetails={showMovieDetails} />
             </ErrorBoundary>
         </>
     );

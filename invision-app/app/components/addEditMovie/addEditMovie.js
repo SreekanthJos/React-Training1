@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './addMovie.scss'
 import PropTypes from 'prop-types';
 
@@ -28,7 +28,8 @@ export function AddEditMovie(props) {
     })
   }
 
-  function onSubmit(e) {
+  function onSubmit(e) {  
+    debugger
     e.preventDefault();
     props.onSubmit(newMovie);
    
@@ -86,7 +87,7 @@ export function AddEditMovie(props) {
           </label>
           <div className='button-container'>
             <input className='reset-button' type='reset' value='Reset' onClick={reset} />
-            <input className='submit-button' type='submit' value='Submit' />
+            <input className='submit-button' type='submit' value='Submit' onClick={onSubmit}/>
           </div>
         </form>
       </div>
@@ -98,3 +99,4 @@ AddEditMovie.propTypes = {
   onSubmit: PropTypes.func.isRequired, 
   close: PropTypes.func.isRequired
 };
+

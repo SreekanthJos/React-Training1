@@ -7,7 +7,7 @@ import { getMovies } from '../../store/actions';
 import { MoivesFound } from '../moviesFound/moviesFound';
 
 const MovieList=({ getMovies, customMovies, sortedMovies, showMovieDetails })=> {
-debugger
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -36,14 +36,14 @@ debugger
   );
 };
 const mapStateToProps = (state) => {
-  debugger
+  
   return {
     customMovies: state.movies.movies,
     sortedMovies: state.movies.sortedMovies
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  debugger
+  
   return {    
     getMovies: () => dispatch(getMovies())
   };

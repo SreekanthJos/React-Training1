@@ -29,7 +29,7 @@ export function AddEditMovie(props) {
   }
 
   function onSubmit(e) {  
-    debugger
+    
     e.preventDefault();
     props.onSubmit(newMovie);
    

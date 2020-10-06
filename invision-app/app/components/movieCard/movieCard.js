@@ -31,26 +31,6 @@ export function MovieCard(props) {
 
   const closeEditWindow = useCallback(() => setAddEditWindowVisibility(false));
 
-  // function openEditWindow() {
-  //   setAddEditWindowVisibility(true);
-  //   closeMenu();
-  // }
-
-  // function closeEditWindow() {
-  //   setAddEditWindowVisibility(false);
-  // }
-
-  // function openDeleteWindow() {
-  //   setDeleteWindowVisibility(true);
-  //   closeMenu();
-  // }
-
-  // function closeDeleteWindow() {
-  //   setDeleteWindowVisibility(false);
-  // }
-  // function closeMenu(){
-  //   setMenuVisibility(false);
-  // }
   function showDetails(){
     dispatch(showDescriptionMovie(props.movie));
    props.showMovieDetails();
@@ -97,8 +77,7 @@ MovieCard.propTypes = {
     runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
   }),
   showMovieDetails: PropTypes.func.isRequired
-  //deleteMovie: PropTypes.func.isRequired, 
-  //changeHeaderToDescription: PropTypes.func.isRequired
+  
 };
 
 const mapDispatchToProps = {

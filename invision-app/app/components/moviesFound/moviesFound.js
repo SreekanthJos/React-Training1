@@ -3,7 +3,7 @@ import './moviesFound.scss'
 import { connect } from 'react-redux';
 
 export function MoivesFound(props){
-debugger
+
     const message = props.count > 1 ? 'movies found' : 'movie found';
   
   return <div className="movie-count">
@@ -13,9 +13,8 @@ debugger
   </div>
 }
 const mapStateToProps = (state) => {
-  debugger
+  
   return {
     count: state.movies.movies.length   
   };
 };
-//export default connect(mapStateToProps, null)(MoivesFound);

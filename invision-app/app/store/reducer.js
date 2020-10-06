@@ -57,7 +57,7 @@ const filterMovies = (movies, genre, arSorted) => {
         return 'No movies';
     }
     console.log(arSorted);
-    debugger;
+    
     return arSorted;
 };
 

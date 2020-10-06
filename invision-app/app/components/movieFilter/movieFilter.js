@@ -8,7 +8,7 @@ import {Filters} from '../../model/filter'
 const filters=Filters;
     const dispatch = useDispatch();
     const filterMovies = useCallback((e) => {
-        debugger
+        
         dispatch(filterBYGenere(e.target.textContent));
     });
     return (
@@ -17,13 +17,7 @@ const filters=Filters;
             <span className="filter-item" key={filter.id} onClick={filterMovies}>{filter.name}</span>
         ))}
     </div>
-        // <div className="filter-container" onClick={filterMovies}>
-        //     <button className="filter-item">all</button>
-        //     <button className="filter-item">drama</button>
-        //     <button className="filter-item">comedy</button>
-        //     <button className="filter-item">horror</button>
-        //     <button className="filter-item">action</button>
-        // </div>
+       
     );
 
 }

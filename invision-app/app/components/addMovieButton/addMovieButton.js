@@ -25,9 +25,3 @@ export  function AddMovieButton(props) {
         </section>
     );
 }
-// const mapDispatchToProps = {
-//     createMovie
-
-// };
-
-//export default connect(null, mapDispatchToProps)(AddMovieButton);

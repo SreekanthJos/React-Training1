@@ -8,7 +8,7 @@ export function MovieDetails({dmovie,displayMainPage}) {
         let year = date.split('-')[0];
         return year;
     }
-    debugger
+    
     const movie = dmovie;
     console.log(movie);
     return (

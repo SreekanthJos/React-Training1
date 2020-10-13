@@ -42,12 +42,12 @@ export function AddEditMovie(props) {
       props.close();
     }
   });
-  
+  let pagetitle = props.movie ? "Edit Movie" : "Add Movie";
   return (
     <div className='add-modal-dialog'>
       <div className='add-modal-dialog-content'>
         <a href='#close' title='close' className='close' onClick={props.close}>X</a>
-        <h2 className='add-modal-dialog-header'></h2>
+        <h2 className='add-modal-dialog-header'>{pagetitle}</h2>
         <form className='add-modal-dialog-form' onSubmit={handleSubmit}>
           {props.movie &&
             <label>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Header,Footer,Home } from "./components";
 import "./app.scss"
 import  './components/common.scss'
-export default function App() {  
+function App() {  
       return (
          <div className="container">
             <Header />
@@ -11,3 +11,4 @@ export default function App() {
          </div>
       );   
 }
+export default App;

@@ -1,19 +1,56 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './movieList.scss'
 import { MovieCard } from '../movieCard';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getMovies } from '../../store/actions';
+import { MoivesFound } from '../moviesFound/moviesFound';
 
-export function MovieList(props) {
-    return (
-        <div className="movies-list">
-            {props.movies.map(mov => <div className="movies-list__item" key={mov.id}>
-                <MovieCard movie={mov} key={mov.id} updateMovie={props.updateMovie} deleteMovie={props.deleteMovie} showMovieDetails={props.showMovieDetails}/></div>)}
-        </div>
-    );
-}   
-MovieList.propTypes = {   
-    deleteMovie: PropTypes.func.isRequired,
-    updateMovie: PropTypes.func.isRequired,
+const MovieList=({ getMovies, customMovies, sortedMovies, showMovieDetails })=> {
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return (   
+   <div>
+     <MoivesFound count={sortedMovies.length === 0?customMovies.length:sortedMovies.length}/>    
   
+    <div className="movies-list">
+         
+      {
+        sortedMovies.length === 0 ?
+          customMovies.map((mov) => {
+            return <div className="movies-list__item" key={mov.id}>
+              <MovieCard movie={mov} showMovieDetails={showMovieDetails} />
+            </div>
+          })
+          : sortedMovies === 'No movies' ?
+            <div className='no-films-container'>No movies in such genre</div>
+            : sortedMovies.map((mov) => {
+              return <MovieCard movie={mov} showMovieDetails={showMovieDetails} />;
+            })
+      }
+       </div>
+    </div>
+  );
+};
+const mapStateToProps = (state) => {
+  
+  return {
+    customMovies: state.movies.movies,
+    sortedMovies: state.movies.sortedMovies
   };
+};
+const mapDispatchToProps = (dispatch) => {
   
+  return {    
+    getMovies: () => dispatch(getMovies())
+  };
+};
+
+MovieList.propTypes = {
+  showMovieDetails: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

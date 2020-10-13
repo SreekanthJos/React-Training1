@@ -1,16 +1,18 @@
-import React,{useState} from 'react';
+import React,{useState,useCallback} from 'react';
 import './movieCard.scss';
 import { Menu } from "../menu/menu";
 import { AddEditMovie } from "../addEditMovie";
 import { DeleteMovie } from "../deleteMovie/deleteMovie";
 import PropTypes from 'prop-types';
-
+import { showDescriptionMovie,updateMovie } from '../../store/actions';
+import { connect,useDispatch } from "react-redux";
 export function MovieCard(props) {
+  
   const [isHovered, setHoverState] = useState(false);
   const [isOpenedMenu, setMenuVisibility] = useState(false);
   const [isOpenedDeleteWindow, setDeleteWindowVisibility] = useState(false);
   const [isopenedEditWindow, setAddEditWindowVisibility] = useState(false);
-
+  const dispatch = useDispatch();
   function handleEnter() {
     setHoverState(true);
   }
@@ -19,39 +21,32 @@ export function MovieCard(props) {
     setHoverState(false);
     setMenuVisibility(false);
   }
+  const closeMenu= useCallback(() => setMenuVisibility(false));
 
-  function openEditWindow() {
-    setAddEditWindowVisibility(true);
-    closeMenu();
-  }
+  const openDeleteWindow = useCallback(() => { setDeleteWindowVisibility(true);setMenuVisibility(false);});
 
-  function closeEditWindow() {
-    setAddEditWindowVisibility(false);
-  }
+  const closeDeleteWindow = useCallback(() => setDeleteWindowVisibility(false));
 
-  function openDeleteWindow() {
-    setDeleteWindowVisibility(true);
-    closeMenu();
-  }
+  const openEditWindow = useCallback(() =>{ setAddEditWindowVisibility(true);setMenuVisibility(false)});
 
-  function closeDeleteWindow() {
-    setDeleteWindowVisibility(false);
-  }
-  function closeMenu(){
-    setMenuVisibility(false);
-  }
+  const closeEditWindow = useCallback(() => setAddEditWindowVisibility(false));
+
   function showDetails(){
-    props.showMovieDetails(props.movie);
+    dispatch(showDescriptionMovie(props.movie));
+   props.showMovieDetails();
+  }
+  function editMovie(movie){
+dispatch(updateMovie(movie));
   }
   const movie = props.movie;
   
   return (
     <article className="movie" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {isOpenedDeleteWindow && (
-        <DeleteMovie movie={props.movieId} close={closeDeleteWindow} deleteMovie={props.deleteMovie} id={props.movie.id}/>
+        <DeleteMovie close={closeDeleteWindow} id={movie.id}/>
       )}
       {isopenedEditWindow && (
-        <AddEditMovie movie={props.movie} onSubmit={props.updateMovie} close={closeEditWindow} closeMenu={closeMenu} />
+        <AddEditMovie movie={props.movie} close={closeEditWindow} onSubmit={editMovie} closeMenu={closeMenu} />
       )}
       {isHovered && !isOpenedMenu && (
         <div className='circle' onClick={() => { setMenuVisibility(true); setHoverState(false) }}></div>
@@ -81,9 +76,13 @@ MovieCard.propTypes = {
     genres: PropTypes.string.isRequired,
     runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
   }),
-  updateMovie: PropTypes.func.isRequired,
-  //deleteMovie: PropTypes.func.isRequired, 
-  //changeHeaderToDescription: PropTypes.func.isRequired
+  showMovieDetails: PropTypes.func.isRequired
+  
 };
 
-export default MovieCard;
+const mapDispatchToProps = {
+  updateMovie
+  
+};
+
+export default connect(null,mapDispatchToProps)(MovieCard);

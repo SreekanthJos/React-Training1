@@ -1,20 +1,21 @@
 import React from 'react';
 import './movieDetails.scss';
 import PropTypes from 'prop-types';
-import Header from '../header';
-export function MovieDetails(props) {
+import { connect } from 'react-redux';
+export function MovieDetails({dmovie,displayMainPage}) {
 
     function getYear(date) {
         let year = date.split('-')[0];
         return year;
     }
-    const movie = props.movie;
     
+    const movie = dmovie;
+    console.log(movie);
     return (
         <header className='header-container'>
             <div className='header-top-part'>
                 
-                <button className='search-description-button' onClick={props.displayMainPage}></button>
+                <button className='search-description-button' onClick={displayMainPage}></button>
             </div>
             <div className='description-container'>
                 <div className='image-container'>
@@ -43,7 +44,7 @@ export function MovieDetails(props) {
 
 MovieDetails.propTypes = {
     movie: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+     id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       tagline: PropTypes.string,
       vote_average: PropTypes.number,
@@ -56,8 +57,16 @@ MovieDetails.propTypes = {
       genres: PropTypes.string.isRequired,
       runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
     }),
-    displayMainpage: PropTypes.func.isRequired
+    displayMainPage: PropTypes.func.isRequired
   };
   
 
-export default MovieDetails;
+  const mapStateToProps = (state) => {
+    return {
+      dmovie: state.movies.movie
+    };
+  };
+  
+
+export default connect(mapStateToProps, null)(MovieDetails);
+

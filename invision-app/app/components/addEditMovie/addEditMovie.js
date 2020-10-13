@@ -37,8 +37,6 @@ export function AddEditMovie(props) {
     },
     validate,
     onSubmit:  (values)=> {
-      debugger
-      console.log("inSubmit");
       event.preventDefault();
       props.onSubmit(values);     
       props.close();

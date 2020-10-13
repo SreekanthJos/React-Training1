@@ -36,7 +36,7 @@ export function MovieCard(props) {
    props.showMovieDetails();
   }
   function editMovie(movie){
-    debugger
+  
 dispatch(updateMovie(movie));
   }
   const movie = props.movie;

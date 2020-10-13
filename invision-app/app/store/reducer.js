@@ -20,14 +20,15 @@ export const moviesReducer = (state = initialState, action) => {
             console.log(action.payload)
             return { ...state, movies: action.payload };
         case CREATE_MOVIE:
-            return { ...state, movies: state.movies.concat([action.payload]) };
+            return { ...state, movies: state.movies.concat([action.payload.movie]) };
         case DELETE_MOVIE:
-            return { ...state, movies: state.movies.filter((m) => m.id !== action.payload) };
+            return { ...state, movies: state.movies.filter((m) => m.id !== action.payload.id) };
         case UPDATE_MOVIE:
             return {
                 ...state, movies: state.movies.map((m) => {
-                    if (m.id == action.payload.id) {
-                        return action.payload
+                    debugger
+                    if (m.id == action.payload.movie.id) {
+                        return action.payload.movie
                     }
                     return m;
                 })
@@ -38,9 +39,9 @@ export const moviesReducer = (state = initialState, action) => {
             return { ...state, movies: state.movies.slice().sort((movieA, movieB) => movieA.title > movieB.title ? 1 : -1) };
 
         case FILTER_BY_GENRE:
-            return { ...state, sortedMovies: action.payload == 'ALL' ? state.movies : filterMovies(state.movies, action.payload, state.sortedMovies) };
+            return { ...state, sortedMovies: action.payload.genre == 'ALL' ? state.movies : filterMovies(state.movies, action.payload.genre, state.sortedMovies) };
         case SHOW_DESCRIPTION_MOVIE:
-            return { ...state, movie: action.payload };
+            return { ...state, movie: action.payload.movie };
         default: return state;
     }
 };

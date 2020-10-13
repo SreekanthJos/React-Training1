@@ -36,6 +36,7 @@ export function MovieCard(props) {
    props.showMovieDetails();
   }
   function editMovie(movie){
+    debugger
 dispatch(updateMovie(movie));
   }
   const movie = props.movie;
@@ -80,9 +81,6 @@ MovieCard.propTypes = {
   
 };
 
-const mapDispatchToProps = {
-  updateMovie
-  
-};
 
-export default connect(null,mapDispatchToProps)(MovieCard);
+
+//export default connect(null,mapDispatchToProps)(MovieCard);

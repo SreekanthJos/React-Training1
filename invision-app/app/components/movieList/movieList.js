@@ -16,8 +16,7 @@ const MovieList=({ getMovies, customMovies, sortedMovies, showMovieDetails })=> 
    <div>
      <MoivesFound count={sortedMovies.length === 0?customMovies.length:sortedMovies.length}/>    
   
-    <div className="movies-list">
-         
+    <div className="movies-list">         
       {
         sortedMovies.length === 0 ?
           customMovies.map((mov) => {

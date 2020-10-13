@@ -2,9 +2,8 @@ import React , { useCallback, useState } from "react";
 import './addMovieButton.scss'
 import { Search } from "../search";
 import { AddEditMovie } from "../addEditMovie";
-import { createMovie } from "../../store/actions";
-import {connect, useDispatch } from "react-redux";
-
+import {useDispatch} from 'react-redux'
+import {createMovie} from '../../store/actions'
 export  function AddMovieButton(props) {
     const [openState, setOpenState] = useState(false);
     const close = useCallback(() => setOpenState(false));

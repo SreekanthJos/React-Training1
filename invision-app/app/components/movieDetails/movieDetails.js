@@ -54,7 +54,7 @@ MovieDetails.propTypes = {
       overview: PropTypes.string.isRequired,
       budget: PropTypes.number,
       revenue: PropTypes.number,
-      genres: PropTypes.string.isRequired,
+      genres: PropTypes.array.isRequired,
       runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
     }),
     displayMainPage: PropTypes.func.isRequired

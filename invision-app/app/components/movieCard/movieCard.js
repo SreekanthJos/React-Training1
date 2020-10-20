@@ -36,6 +36,7 @@ export function MovieCard(props) {
    props.showMovieDetails();
   }
   function editMovie(movie){
+  
 dispatch(updateMovie(movie));
   }
   const movie = props.movie;
@@ -68,21 +69,17 @@ dispatch(updateMovie(movie));
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,   
     release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string,
     overview: PropTypes.string.isRequired,   
-    genres: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
     runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
   }),
-  showMovieDetails: PropTypes.func.isRequired
-  
+  showMovieDetails: PropTypes.func.isRequired  
 };
 
-const mapDispatchToProps = {
-  updateMovie
-  
-};
 
-export default connect(null,mapDispatchToProps)(MovieCard);
+
+//export default connect(null,mapDispatchToProps)(MovieCard);

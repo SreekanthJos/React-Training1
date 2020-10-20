@@ -8,3 +8,5 @@ export const SORT_BY_TITLE = 'SORT_BY_TITLE';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const SHOW_DESCRIPTION_MOVIE = 'SHOW_DESCRIPTION_MOVIE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
+export const SORT_BY='SORT_BY';
+export const SEARCH_MOVIES='SEARCH_MOVIES';

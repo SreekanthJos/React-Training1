@@ -1,6 +1,5 @@
 import React from 'react';
 import './moviesFound.scss'
-import { connect } from 'react-redux';
 
 export function MoivesFound(props){
 
@@ -12,9 +11,3 @@ export function MoivesFound(props){
     <span >{message}</span>
   </div>
 }
-const mapStateToProps = (state) => {
-  
-  return {
-    count: state.movies.movies.length   
-  };
-};

@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './movieList.scss'
 import { MovieCard } from '../movieCard';
 import PropTypes from 'prop-types';
@@ -6,45 +6,55 @@ import { connect } from 'react-redux';
 import { getMovies } from '../../store/actions';
 import { MoivesFound } from '../moviesFound/moviesFound';
 
-const MovieList=({ getMovies, customMovies, sortedMovies, showMovieDetails })=> {
+const MovieList = ({ getMovies, sortedMovies, showMovieDetails }) => {
 
   useEffect(() => {
     getMovies();
   }, []);
 
-  return (   
-   <div>
-     <MoivesFound count={sortedMovies.length === 0?customMovies.length:sortedMovies.length}/>    
-  
-    <div className="movies-list">
-         
-      {
-        sortedMovies.length === 0 ?
-          customMovies.map((mov) => {
-            return <div className="movies-list__item" key={mov.id}>
-              <MovieCard movie={mov} showMovieDetails={showMovieDetails} />
-            </div>
-          })
-          : sortedMovies === 'No movies' ?
+  return (
+    <div>
+      <MoivesFound count={sortedMovies.length} />
+
+      <div className="movies-list">
+        {
+          sortedMovies === 'No movies' ?
             <div className='no-films-container'>No movies in such genre</div>
             : sortedMovies.map((mov) => {
-              return <MovieCard movie={mov} showMovieDetails={showMovieDetails} />;
+              return <MovieCard movie={mov} key={mov.id} showMovieDetails={showMovieDetails} />;
             })
-      }
-       </div>
+        }
+      </div>
     </div>
   );
 };
+function filteredMovies(movies, filterKey) {
+  let ar = [];
+  movies.map((m) => {
+    for (let index = 0; index < m.genres.length; index++) {
+      if (m.genres[index] === filterKey) {
+        ar.push(m);
+      }
+    }
+  });
+  return ar;
+}
 const mapStateToProps = (state) => {
-  
+  const { movies: { movies, sortKey, filterKey } } = state;
+
+  const sortedMovies = [...movies].sort((mA, mB) => mA[sortKey] > mB[sortKey] ? 1 : -1);
+
+  const movielist = filterKey === 'All' ? sortedMovies : filteredMovies(sortedMovies, filterKey);
+
+  console.log(state);
   return {
-    customMovies: state.movies.movies,
-    sortedMovies: state.movies.sortedMovies
+    sortedMovies: movielist,
+
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  
-  return {    
+
+  return {
     getMovies: () => dispatch(getMovies())
   };
 };

@@ -69,16 +69,15 @@ dispatch(updateMovie(movie));
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,   
     release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string,
     overview: PropTypes.string.isRequired,   
-    genres: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
     runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
   }),
-  showMovieDetails: PropTypes.func.isRequired
-  
+  showMovieDetails: PropTypes.func.isRequired  
 };
 
 

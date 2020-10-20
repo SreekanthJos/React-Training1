@@ -1,8 +1,8 @@
 export const Filters=[
-    {id:'1',name:'ALL'},
-    {id:'2',name:'DOCUEMNTARY'},
-    {id:'3',name:'COMEDY'},
-    {id:'4',name:'HORROR'},
-    {id:'5',name:'CRIME'}
+    {id:'1',name:'All'},
+    {id:'2',name:'Documentary'},
+    {id:'3',name:'Comedy'},
+    {id:'4',name:'Hrror'},
+    {id:'5',name:'Crime'}
 ];
    

@@ -10,32 +10,48 @@ import {
     SORT_BY
 } from './types';
 const moviesAPI = 'http://localhost:4000/movies';
-export function getMovies() {
+export function getMovies(order, genre, search) {
     return async (dispatch) => {
-        let resp = await fetch(moviesAPI);
+        //?searchBy=title&sortOrder=asc&sortBy=${ order }&filter=${ genre }&search=${ search }`
+       let resp= await fetch(`${moviesAPI}?searchBy=title&sortOrder=asc&sortBy=${ order }&filter=${ genre }&search=${ search }`);
         let moviesJson = await resp.json();
         dispatch({ type: FETCH_MOVIES, payload: moviesJson.data });
     };
 }
 
 export function createMovie(movie) {
-    return {
-        type: CREATE_MOVIE,
-        payload: { movie }
+    return async (dispatch) => {
+        let resp = await fetch(`${moviesAPI}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json;charset=utf8' },
+            body: JSON.stringify(movie)
+        });
+        let json = await resp.json();
+        dispatch({ type: CREATE_MOVIE, payload: json });
     };
 }
 
 export function updateMovie(movie) {
-    return {
-        type: UPDATE_MOVIE,
-        payload: { movie }
+    return async (dispatch) => {
+        let resp = await fetch(`${moviesAPI}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json;charset=utf8' },
+            body: JSON.stringify(movie)
+        });
+       // let json = await resp.json();
+        dispatch({ type: UPDATE_MOVIE, payload: movie });
     };
+   
 }
 export function deleteMovie(id) {
-    return {
-        type: DELETE_MOVIE,
-        payload: { id }
+    return async (dispatch) => {
+        let resp = await fetch(`${moviesAPI}/${id}`, {
+            method: 'DELETE'            
+        });
+       // let json = await resp.json();
+        dispatch({ type: DELETE_MOVIE, payload: {id} });
     };
+   
 }
 export function sortMovies(sortBy) {
     return {
@@ -57,12 +73,11 @@ export function filterBYGenere(genre) {
     }
 }
 
-export function search(input) {
-    return async (dispatch) => {
-        debugger
-        let resp = await fetch(`${moviesAPI}?search=${input}&searchBy=title`);
-        let movies = await resp.json();
-        dispatch({ type: FETCH_MOVIES, payload: movies.data });
-    }
-}
+// export function search(input) {
+//     return async (dispatch) => {        
+//         let resp = await fetch(`${moviesAPI}?search=${input}&searchBy=title`);
+//         let movies = await resp.json();
+//         dispatch({ type: FETCH_MOVIES, payload: movies.data });
+//     }
+// }
 

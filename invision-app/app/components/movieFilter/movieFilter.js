@@ -1,15 +1,17 @@
 import React, { useCallback } from 'react';
 import './movieFilter.scss';
 import { useDispatch } from "react-redux";
-import { filterBYGenere } from "../../store/actions";
+import {  } from "../../store/actions";
 import {Filters} from '../../model/filter'
- export function MovieFilter() {
+ export function MovieFilter({ setGenreState}) {
 
 const filters=Filters;
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const filterMovies = useCallback((e) => {        
         debugger;
-        dispatch(filterBYGenere(e.target.textContent));
+    setGenreState(e.target.textContent);
+
+      // dispatch(filterBYGenere(e.target.textContent));
     });
     return (
         <div className="filter-container">

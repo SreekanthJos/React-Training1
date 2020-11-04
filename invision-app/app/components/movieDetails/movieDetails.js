@@ -2,14 +2,19 @@ import React from 'react';
 import './movieDetails.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-export function MovieDetails({dmovie,displayMainPage}) {
+export function MovieDetails({displayMainPage,history}) {
 
     function getYear(date) {
         let year = date.split('-')[0];
         return year;
     }
-    
-    const movie = dmovie;
+    if (!history.location.state) {
+        history.push({
+          pathname: '/noMovieFound'
+        });
+        return null;
+      }
+    const movie = history.location.state.movie;
     console.log(movie);
     return (
         <header className='header-container'>
@@ -43,30 +48,31 @@ export function MovieDetails({dmovie,displayMainPage}) {
 }
 
 MovieDetails.propTypes = {
-    movie: PropTypes.shape({
-     id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      tagline: PropTypes.string,
-      vote_average: PropTypes.number,
-      vote_count: PropTypes.number,
-      release_date: PropTypes.string.isRequired,
-      poster_path: PropTypes.string,
-      overview: PropTypes.string.isRequired,
-      budget: PropTypes.number,
-      revenue: PropTypes.number,
-      genres: PropTypes.array.isRequired,
-      runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
-    }),
-    displayMainPage: PropTypes.func.isRequired
+    // movie: PropTypes.shape({
+    //  id: PropTypes.number.isRequired,
+    //   title: PropTypes.string.isRequired,
+    //   tagline: PropTypes.string,
+    //   vote_average: PropTypes.number,
+    //   vote_count: PropTypes.number,
+    //   release_date: PropTypes.string.isRequired,
+    //   poster_path: PropTypes.string,
+    //   overview: PropTypes.string.isRequired,
+    //   budget: PropTypes.number,
+    //   revenue: PropTypes.number,
+    //   genres: PropTypes.array.isRequired,
+    //   runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
+    // }),
+    displayMainPage: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   };
   
 
-  const mapStateToProps = (state) => {
-    return {
-      dmovie: state.movies.movie
-    };
-  };
+//   const mapStateToProps = (state) => {
+//     return {
+//       dmovie: state.movies.movie
+//     };
+//   };
   
 
-export default connect(mapStateToProps, null)(MovieDetails);
+export default (MovieDetails);
 

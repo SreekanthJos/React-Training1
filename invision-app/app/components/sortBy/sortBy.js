@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import './sortBy.scss'
 import { sortMovies } from "../../store/actions";
 
-export function SortBy(){
+export function SortBy({setOrderState}){
     const dispatch=useDispatch();
     const onChangeInput=useCallback((e)=>{
-        dispatch(sortMovies(e.target.value));        
+        setOrderState(e.target.value);
+       // dispatch(sortMovies(e.target.value));        
     });
 
     return (

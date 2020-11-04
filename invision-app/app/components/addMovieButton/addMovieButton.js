@@ -19,7 +19,7 @@ export  function AddMovieButton(props) {
                     <input type="button" value="+ADD MOVIE" onClick={() => setOpenState(true)} className="button button__control" />
                     {openState && <AddEditMovie  onSubmit={addMovie} close={close} />}
                 </div>
-                <Search />
+                <Search {...props}/>
             </div>
         </section>
     );

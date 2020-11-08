@@ -22,22 +22,13 @@ export function Home(
        history
   }
 ) {
-    // const [isDetailsPage, setDetialsPage] = useState(false);
-    // const displayMainPage = useCallback(() => {
-    //     setDetialsPage(false);
-    //   }); 
-    //   const showMovieDetails = useCallback(() => {
-    //     setDetialsPage(true);
-    //   });
+   
 
     return (
         <>
          <Header></Header>
         {
          
-            isDetailsPage ?
-            <MovieDetails  displayMainPage={displayMainPage} history={history}/>
-            : 
              <AddMovieButton  searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} history={history} />
         }
            <MovieFiterAndSort setOrderState={setOrderState} setGenreState={setGenreState}/>

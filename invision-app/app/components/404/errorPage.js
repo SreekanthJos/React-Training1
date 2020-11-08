@@ -3,7 +3,7 @@ import './errorPage.scss';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 
-function ErrorPage () {
+export function ErrorPage () {
   return (
     <React.Fragment>
       <header className='error-header'>
@@ -19,4 +19,4 @@ function ErrorPage () {
   );
 }
 
-export default ErrorPage;
+

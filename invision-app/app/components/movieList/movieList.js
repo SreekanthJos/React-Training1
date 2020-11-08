@@ -12,7 +12,13 @@ const MovieList = ({ getMovies, sortedMovies, showMovieDetails,history }) => {
     getMovies();
   }, []);
 
-  return (
+  return sortedMovies.length === 0
+    ? (
+      <div className='no-movies-content'>
+        <p className='no-movies-title'>No Movie Found</p>
+    </div>
+    )
+    : (
     <div>
       <MoivesFound count={sortedMovies.length} />
 

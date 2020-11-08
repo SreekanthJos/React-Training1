@@ -23,11 +23,6 @@ export function Search({ searchState, setSearchState, fetchMovies, history }) {
         fetchMovies();
     }
 
-    // const dispatch = useDispatch();
-    // function onSearch() {
-    //     debugger;
-    //     dispatch(search(document.getElementById("txtSearch").value));
-    // }
     return (
       
             <div className="search">

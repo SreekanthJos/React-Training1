@@ -6,12 +6,10 @@ import {Filters} from '../../model/filter'
  export function MovieFilter({ setGenreState}) {
 
 const filters=Filters;
-    //const dispatch = useDispatch();
+   
     const filterMovies = useCallback((e) => {        
-        debugger;
+      
     setGenreState(e.target.textContent);
-
-      // dispatch(filterBYGenere(e.target.textContent));
     });
     return (
         <div className="filter-container">

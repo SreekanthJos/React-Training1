@@ -1,26 +1,31 @@
 import React from 'react';
 import './movieDetails.scss';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-export function MovieDetails({displayMainPage,history}) {
+import { connect, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useParams, Redirect } from "react-router-dom";
+
+export function MovieDetails({displayMainPage}) {
+    const history = useHistory();
+    let { id } = useParams();
 
     function getYear(date) {
         let year = date.split('-')[0];
         return year;
     }
-    if (!history.location.state) {
-        history.push({
-          pathname: '/noMovieFound'
-        });
-        return null;
+
+    const goBack = () => {
+        history.goBack();
       }
-    const movie = history.location.state.movie;
+    
+    const movie = useSelector(state => state.movies.movies.find(movie => movie.id == id));
+
     console.log(movie);
-    return (
+    return movie ? (
         <header className='header-container'>
             <div className='header-top-part'>
                 
-                <button className='search-description-button' onClick={displayMainPage}></button>
+                <button className='search-description-button' onClick={goBack}></button>
             </div>
             <div className='description-container'>
                 <div className='image-container'>
@@ -44,7 +49,8 @@ export function MovieDetails({displayMainPage,history}) {
                 </div>
             </div>
         </header>
-    );
+    )
+    : <Redirect to="/" />;
 }
 
 MovieDetails.propTypes = {
@@ -63,7 +69,7 @@ MovieDetails.propTypes = {
     //   runtime: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
     // }),
     displayMainPage: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    // history: PropTypes.object.isRequired
   };
   
 
@@ -73,6 +79,3 @@ MovieDetails.propTypes = {
 //     };
 //   };
   
-
-export default (MovieDetails);
-

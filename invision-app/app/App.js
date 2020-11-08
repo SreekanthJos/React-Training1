@@ -7,6 +7,7 @@ import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom';
 import { getMovies } from './store/actions';
 import { ErrorPage } from './components/404';
 import { NoMoviesPage } from './components/noMoviesPage';
+import { MovieDetails } from './components/movieDetails';
 
 function App() {
   const [isDetailsPage, setDetialsPage] = useState(false);
@@ -39,16 +40,18 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState} {...props} />} />
-            <Route path='/movie/:id' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState}   {...props} />} />
+            < Route exact path='/movie/:id'>
+                <MovieDetails  displayMainPage={displayMainPage} />
+            </Route>
             <Route path='/search' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState}  {...props} />} />
 
-            <Route path='/noMovieFound' render={(props) => <NoMoviesPage searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState} {...props} />} />
-            <Route component={ErrorPage} />
+            <Route path='*'>
+              <ErrorPage />
+            </Route>
           </Switch>
         </BrowserRouter>
       </div>
-      {/* <Home/> */}
-
+     
     </div>
   );
 }

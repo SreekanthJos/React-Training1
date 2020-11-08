@@ -1,1 +1,1 @@
-export {default} from './errorPage'
+export * from './errorPage'

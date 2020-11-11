@@ -39,6 +39,4 @@ export function NoMoviesPage(
             <Footer></Footer>
         </>
     );
-
 }
-export default NoMoviesPage;

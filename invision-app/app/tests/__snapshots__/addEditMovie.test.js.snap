@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Edit Movie popup: should render Add Edit Movie popup 1`] = `
+<div
+  className="add-modal-dialog"
+>
+  <div
+    className="add-modal-dialog-content"
+  >
+    <a
+      className="close"
+      href="#close"
+      onClick={[MockFunction]}
+      title="close"
+    >
+      X
+    </a>
+    <h2
+      className="add-modal-dialog-header"
+    >
+      Add Movie
+    </h2>
+    <form
+      className="add-modal-dialog-form"
+      onSubmit={[Function]}
+    >
+      <label>
+        Title
+        <input
+          className="add-input title undefined"
+          name="title"
+          onChange={[Function]}
+          placeholder="Title"
+          type="text"
+          value=""
+        />
+      </label>
+      <label>
+        Release date
+        <input
+          className="add-input title undefined"
+          name="release_date"
+          onChange={[Function]}
+          type="date"
+          value=""
+        />
+      </label>
+      <label>
+        Movie url
+        <input
+          className="add-input title undefined"
+          name="poster_path"
+          onChange={[Function]}
+          placeholder="Movie URL here"
+          type="text"
+          value=""
+        />
+      </label>
+      <label>
+        Genre
+        <select
+          className="add-select title undefined"
+          name="genres"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value="selectTitle"
+          >
+            Select Genre
+          </option>
+          <option
+            value="documentary"
+          >
+            Documentary
+          </option>
+          <option
+            value="comedy"
+          >
+            Comedy
+          </option>
+          <option
+            value="horror"
+          >
+            Horror
+          </option>
+          <option
+            value="crime"
+          >
+            Crime
+          </option>
+        </select>
+      </label>
+      <label>
+        Overview
+        <input
+          className="add-input title undefined"
+          name="overview"
+          onChange={[Function]}
+          placeholder="Overview here"
+          type="text"
+          value=""
+        />
+      </label>
+      <label>
+        Runtime
+        <input
+          className="add-input title undefined"
+          name="runtime"
+          onChange={[Function]}
+          placeholder="Runtime here"
+          type="text"
+          value=""
+        />
+      </label>
+      <div
+        className="button-container"
+      >
+        <input
+          className="reset-button"
+          onClick={[Function]}
+          type="reset"
+          value="Reset"
+        />
+        <input
+          className="submit-button"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+`;

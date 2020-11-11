@@ -3,4 +3,5 @@ node_modules/
 bundle/
 **bundle/
 invision-app/package-lock.json
+coverage/
 .gitignore

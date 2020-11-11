@@ -19,7 +19,7 @@ export const moviesReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case FETCH_MOVIES:
-            console.log(action.payload)
+  //console.log(action.payload)
             return { ...state, movies: action.payload };
         case CREATE_MOVIE:
             return { ...state, movies: state.movies.concat([action.payload.movie]) };

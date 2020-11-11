@@ -29,7 +29,7 @@ module.exports = {
         rules: [
             
                { test: /\.scss$/, use: [ "style-loader","css-loader", "sass-loader" ] },
-               { test: /\.js$/,loader: 'babel-loader'},              
+               { test: /\.js$/,use: 'babel-loader'},              
                { exclude: /node_modules/},
                {
                   test: /\.(gif|ttf|png|jpe?g|svg)$/i,

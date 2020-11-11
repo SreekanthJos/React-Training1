@@ -4,7 +4,7 @@ import '../common.scss';
 import PropTypes from 'prop-types';
 
 export function Search({ searchState, setSearchState, fetchMovies, history }) {
-    const searchMovie = history.location.pathname.split('/')[2];
+    //const searchMovie = history.location.pathname.split('/')[2];
     // if (searchMovie) {
     //     setSearchState(searchMovie);
     //    // fetchMovies();

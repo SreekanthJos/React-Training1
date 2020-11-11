@@ -6,13 +6,19 @@ import { connect } from 'react-redux';
 import { getMovies } from '../../store/actions';
 import { MoivesFound } from '../moviesFound/moviesFound';
 
-const MovieList = ({ getMovies, sortedMovies, showMovieDetails }) => {
+const MovieList = ({ getMovies, sortedMovies, showMovieDetails,history }) => {
 
   useEffect(() => {
     getMovies();
   }, []);
 
-  return (
+  return sortedMovies.length === 0
+    ? (
+      <div className='no-movies-content'>
+        <p className='no-movies-title'>No Movie Found</p>
+    </div>
+    )
+    : (
     <div>
       <MoivesFound count={sortedMovies.length} />
 
@@ -21,7 +27,7 @@ const MovieList = ({ getMovies, sortedMovies, showMovieDetails }) => {
           sortedMovies === 'No movies' ?
             <div className='no-films-container'>No movies in such genre</div>
             : sortedMovies.map((mov) => {
-              return <MovieCard movie={mov} key={mov.id} showMovieDetails={showMovieDetails} />;
+              return <MovieCard movie={mov} key={mov.id} showMovieDetails={showMovieDetails}  history={history}/>;
             })
         }
       </div>

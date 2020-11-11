@@ -1,0 +1,35 @@
+.error-container {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #232323;
+    padding-bottom: 100px;
+}
+
+.error-title {
+    color: #ffffff;
+    font-size: 40px;
+}
+
+.error-img {
+    width: 650px;
+    height: 400px;
+    background: url('../../../assets/error.png') no-repeat right #232323;
+}
+
+.error-button {
+    background-color: #232323;
+    border: 2px solid #F65261;
+    border-radius: 4px;
+    width: 250px;
+    height: 80px;
+    color: #F65261;
+    text-transform: uppercase;
+}
+
+.error-button:hover {
+    background-color: #F65261;
+    color: #ffffff;
+}

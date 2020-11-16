@@ -15,16 +15,9 @@ export function NoMoviesPage(
         setOrderState,
         setGenreState
     }
-) {
-    // const [isDetailsPage, setDetialsPage] = useState(false);
-    // const displayMainPage = useCallback(() => {
-    //     setDetialsPage(false);
-    //   }); 
-    //   const showMovieDetails = useCallback(() => {
-    //     setDetialsPage(true);
-    //   });
-
-    return (
+) 
+{
+       return (
         <>
             <Header></Header>
             <main className='no-movies-container'>
@@ -39,6 +32,4 @@ export function NoMoviesPage(
             <Footer></Footer>
         </>
     );
-
 }
-export default NoMoviesPage;

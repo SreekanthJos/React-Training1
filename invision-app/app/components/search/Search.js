@@ -2,46 +2,36 @@ import React from 'react';
 import './search.scss';
 import '../common.scss';
 import PropTypes from 'prop-types';
-
-export function Search({ searchState, setSearchState, fetchMovies, history }) {
-    const searchMovie = history.location.pathname.split('/')[2];
-    // if (searchMovie) {
-    //     setSearchState(searchMovie);
-    //    // fetchMovies();
-    // }
+import { useDispatch, Provider } from 'react-redux';
+import { getMovies } from '../../store/actions'
+export function Search(props) {
     function handleChange(e) {
-        
-        setSearchState(e.target.value);
+        props.setSearchState(e.target.value);
     }
+    const dispatch = useDispatch();
+    const fetchMovies = () => {
+        dispatch(getMovies(props.orderState, props.genreState, props.searchState));
+    };
 
     function handleSubmit(e) {
         e.preventDefault();
-        history.push({
-            pathname: `/search/${searchState}`,
-            referrer: `/search/${searchState}`
+        props.history.push({
+            pathname: `/search/${props.searchState}`,
+            referrer: `/search/${props.searchState}`
         });
         fetchMovies();
     }
 
     return (
-      
-            <div className="search">
-                <h2 className="search__header">FIND YOUR MOVIE</h2><form onSubmit={handleSubmit}>
+        <div className="search">
+            <h2 className="search__header">FIND YOUR MOVIE</h2><form onSubmit={handleSubmit}>
                 <div className="search__controls">
-                
-                    <input type="text" id="txtSearch" className="search__input" onChange={handleChange} value={searchState} />
+                    <input type="text" id="txtSearch" className="search__input" onChange={handleChange} value={props.searchState} />
                     <input type="submit" value="SEARCH" className="button button__primary" />
-                   
                 </div> </form>
-            </div>
-        
+        </div>
+
     );
 }
-
-Search.propTypes = {
-    searchState: PropTypes.string.isRequired,
-    setSearchState: PropTypes.func.isRequired,
-    fetchMovies: PropTypes.func.isRequired
-};
 
 export default Search;

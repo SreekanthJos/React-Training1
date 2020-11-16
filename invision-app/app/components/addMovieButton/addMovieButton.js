@@ -11,8 +11,7 @@ export  function AddMovieButton(props) {
     const addMovie = (movie) => {
         dispatch(createMovie(movie));
     };
-    return (
-       
+    return (       
         <section className="addContianer">
             <div className="add__content">
                 <div className="add-movie">

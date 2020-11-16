@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import './movieCard.scss';
-import { Menu } from "../menu/menu";
+ import   { Menu }  from '../menu/menu'
 import { AddEditMovie } from "../addEditMovie";
 import { DeleteMovie } from "../deleteMovie/deleteMovie";
 import PropTypes from 'prop-types';
@@ -66,7 +66,6 @@ export function MovieCard(props) {
             <h3>{movie.title}</h3>
             <span className="movie__genres">{movie.genres}</span>
           </div>
-
         </figcaption>
       </figure>
     </article>
@@ -85,7 +84,3 @@ MovieCard.propTypes = {
   }),
   showMovieDetails: PropTypes.func.isRequired
 };
-
-
-
-//export default connect(null,mapDispatchToProps)(MovieCard);

@@ -1,15 +1,16 @@
 import React, { useCallback } from 'react';
 import './movieFilter.scss';
 import { useDispatch } from "react-redux";
-import {  } from "../../store/actions";
+import { getMovies } from "../../store/actions";
 import {Filters} from '../../model/filter'
  export function MovieFilter({ setGenreState}) {
 
 const filters=Filters;
    
-    const filterMovies = useCallback((e) => {        
-      
-    setGenreState(e.target.textContent);
+const dispatch = useDispatch();
+
+    const filterMovies = useCallback((e) => {    
+    dispatch(getMovies('',e.target.textContent,''));    
     });
     return (
         <div className="filter-container">
@@ -17,7 +18,5 @@ const filters=Filters;
             <span className="filter-item" key={filter.id} name={filter.name}  onClick={filterMovies}>{filter.name}</span>
         ))}
     </div>
-       
     );
-
 }

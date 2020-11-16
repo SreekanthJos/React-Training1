@@ -51,15 +51,12 @@ const mapStateToProps = (state) => {
   const sortedMovies = [...movies].sort((mA, mB) => mA[sortKey] > mB[sortKey] ? 1 : -1);
 
   const movielist = filterKey === 'All' ? sortedMovies : filteredMovies(sortedMovies, filterKey);
-
-  console.log(state);
   return {
     sortedMovies: movielist,
 
   };
 };
 const mapDispatchToProps = (dispatch) => {
-
   return {
     getMovies: () => dispatch(getMovies())
   };

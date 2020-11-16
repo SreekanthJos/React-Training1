@@ -21,4 +21,3 @@ export function DeleteMovie(props){
   close: PropTypes.func.isRequired,
   deleteMovie: PropTypes.func.isRequired
 };
-

@@ -99,37 +99,4 @@ AddEditMovie.propTypes = {
   movie: PropTypes.object,
   onSubmit: PropTypes.func.isRequired, 
   close: PropTypes.func.isRequired
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -1,17 +1,18 @@
-import React, { Component, useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Home } from "./components";
 import "./app.scss"
 import './components/common.scss'
-import { useDispatch } from 'react-redux';
-import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom';
-import { getMovies } from './store/actions';
+import { Provider } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import { ErrorPage } from './components/404';
-import { NoMoviesPage } from './components/noMoviesPage';
 import { MovieDetails } from './components/movieDetails';
+import { hot } from 'react-hot-loader';
+import 'isomorphic-fetch';
+import 'babel-polyfill';
+import PropTypes from 'prop-types';
 
-function App() {
+const App=({ context, location, Router, store})=> {
   const [isDetailsPage, setDetialsPage] = useState(false);
-  const dispatch = useDispatch();
   const displayMainPage = useCallback(() => {
     setDetialsPage(false);
   });
@@ -22,38 +23,46 @@ function App() {
   const [orderState, setOrderState] = React.useState('');
   const [genreState, setGenreState] = React.useState('');
   const [searchState, setSearchState] = React.useState('');
-
-  const fetchMovies = () => {
-    
-    dispatch(getMovies(orderState, genreState, searchState));
-  };
-  useEffect(() => {
-    if (orderState || genreState) {
-      
-      fetchMovies();
-    }
-  }, [genreState, orderState]);
+ 
   return (
     <div className="container">
-
-      <div className="App">
-        <BrowserRouter>
+    <div className="App">
+    <Provider store={store}>
+      <Router location={location} context={context}>        
           <Switch>
-            <Route exact path='/' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState} {...props} />} />
-            < Route exact path='/movie/:id'>
+            <Route exact path='/' render={(props) => 
+            <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} setOrderState={setOrderState} setGenreState={setGenreState} {...props} />} />
+            <Route exact path='/movie/:id'>
                 <MovieDetails  displayMainPage={displayMainPage} />
             </Route>
-            <Route path='/search' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState} fetchMovies={fetchMovies} setOrderState={setOrderState} setGenreState={setGenreState}  {...props} />} />
+            <Route path='/search' render={(props) => <Home isDetailsPage={isDetailsPage} displayMainPage={displayMainPage} showMovieDetails={showMovieDetails} searchState={searchState} setSearchState={setSearchState}  setOrderState={setOrderState} setGenreState={setGenreState}  {...props} />} />
 
             <Route path='*'>
               <ErrorPage />
             </Route>
           </Switch>
-        </BrowserRouter>
-      </div>
-     
+      </Router>
+    </Provider>
+    </div>
     </div>
   );
 }
 
-export default App;
+App.propTypes = {
+  Router: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  context: PropTypes.shape({
+    url: PropTypes.string,
+  }),
+  store: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+    getState: PropTypes.func.isRequired,
+  }).isRequired,
+};
+App.defaultProps = {
+  location: null,
+  context: null,
+};
+
+export default hot(module)(App);
+

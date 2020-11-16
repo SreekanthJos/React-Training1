@@ -6,8 +6,8 @@ import { sortMovies } from "../../store/actions";
 export function SortBy({setOrderState}){
     const dispatch=useDispatch();
     const onChangeInput=useCallback((e)=>{
-        setOrderState(e.target.value);
-       // dispatch(sortMovies(e.target.value));        
+        setOrderState(e.target.value);     
+        sortMovies(e.target.value);   
     });
 
     return (

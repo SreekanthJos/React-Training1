@@ -11,6 +11,5 @@ export function MovieFiterAndSort({setOrderState,setGenreState}){
             <SortBy  setOrderState={setOrderState}/>
         </div>
     );
-
 }
 
